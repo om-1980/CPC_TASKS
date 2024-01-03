@@ -4,17 +4,17 @@ using namespace std;
 vector<int> counting_sort(vector<int>& nums) {
 
 	int n = nums.size();
-	int maxElem = 0;
+	int maxNum = 0;
 
 	for (int i = 0; i < n; i++) {
-		maxElem = max(maxElem, nums[i]);
+		maxNum = max(maxNum, nums[i]);
     }
     
-	vector<int> countArray(maxElem + 1, 0);
+	vector<int> countArray(maxNum + 1, 0);
 	for (int i = 0; i < n; i++) {
 		countArray[nums[i]]++;
     }
-	for (int i = 1; i <= maxElem; i++) {
+	for (int i = 1; i <= maxNum; i++) {
 		countArray[i] += countArray[i - 1];
     }
 
